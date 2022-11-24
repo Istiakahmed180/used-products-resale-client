@@ -11,7 +11,6 @@ const HomeCategories = () => {
       return data;
     },
   });
-  console.log(categories);
   return (
     <div className="my-10">
       <h1 className="text-2xl text-center font-semibold mb-10">
