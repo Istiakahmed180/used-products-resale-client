@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CategoriesCard = ({ categories }) => {
-  const { image, category } = categories;
+  const { image, category, _id } = categories;
   return (
     <div>
       <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
@@ -16,9 +17,11 @@ const CategoriesCard = ({ categories }) => {
 
           <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
             <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
-            <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-              Show All
-            </button>
+            <Link to={`/category/${_id}`}>
+              <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                Show All
+              </button>
+            </Link>
           </div>
         </div>
       </div>

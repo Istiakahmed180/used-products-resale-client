@@ -11,7 +11,6 @@ const CategoriesProduct = () => {
       return data;
     },
   });
-  console.log(categories);
   return (
     <div>
       <h1 className="text-2xl text-center font-semibold">Chose Categories</h1>

@@ -43,7 +43,7 @@ const Navbar = () => {
             alt=""
             className="w-8"
           />
-          <Link className="ml-2 normal-case font-semibold text-xl">
+          <Link to={"/"} className="ml-2 normal-case font-semibold text-xl">
             Shop BD
           </Link>
         </div>
