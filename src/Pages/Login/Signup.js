@@ -18,7 +18,7 @@ const Signup = () => {
       .then((result) => {
         updateUserProfile(names)
           .then((result) => {
-            toast.success("sign up complete");
+            toast.success("User Sign Up Successfully Email");
             form.reset();
           })
           .catch((error) => console.error(error));
@@ -33,7 +33,7 @@ const Signup = () => {
   const handleGoogleSignUp = () => {
     signInWithGoogle()
       .then((result) => {
-        toast.success("sign up complete");
+        toast.success("User Sign Up Successfully Google");
       })
       .catch((error) => {
         console.error(error);
