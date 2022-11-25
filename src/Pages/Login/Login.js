@@ -1,10 +1,15 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
   const { signin, signInWithGoogle } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const handleLogIn = (event) => {
     event.preventDefault();
 
@@ -16,11 +21,11 @@ const Login = () => {
       .then((result) => {
         toast.success("User Login Successfully Email");
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
         toast.error(error.message);
-        form.reset();
       });
   };
 
@@ -28,6 +33,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         toast.success("User Login Successfully With Google");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
