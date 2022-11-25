@@ -33,7 +33,7 @@ const Navbar = () => {
               <Link className="justify-between">Parent</Link>
             </li>
             <li>
-              <Link>Item 3</Link>
+              <Link to={"/login"}>Login</Link>
             </li>
           </ul>
         </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
             <Link>Parent</Link>
           </li>
           <li>
-            <Link>Item 3</Link>
+            <Link to={"/login"}>Login</Link>
           </li>
         </ul>
       </div>
