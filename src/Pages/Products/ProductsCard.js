@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const ProductsCard = ({ product }) => {
+const ProductsCard = ({ product, setSellerProduct }) => {
   const {
     picture,
     name,
@@ -64,9 +64,13 @@ const ProductsCard = ({ product }) => {
               Product Using: {use}
             </div>
             <div className="flex justify-center">
-              <button className="btn bg-[#153764] hover:bg-[#394CF3] w-1/2 ">
+              <label
+                onClick={() => setSellerProduct(product)}
+                htmlFor="purchase_modal"
+                className="btn bg-[#153764] hover:bg-[#394CF3] w-1/2"
+              >
                 purchase
-              </button>
+              </label>
             </div>
           </div>
         </div>
