@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -32,9 +34,19 @@ const Navbar = () => {
             <li tabIndex={0}>
               <Link className="justify-between">Parent</Link>
             </li>
-            <li>
-              <Link to={"/login"}>Login</Link>
-            </li>
+            {user ? (
+              <>
+                <li onClick={logout}>
+                  <Link>Logout</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to={"/login"}>Login</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="flex items-center">
@@ -56,9 +68,19 @@ const Navbar = () => {
           <li tabIndex={0}>
             <Link>Parent</Link>
           </li>
-          <li>
-            <Link to={"/login"}>Login</Link>
-          </li>
+          {user ? (
+            <>
+              <li onClick={logout}>
+                <Link>Logout</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to={"/login"}>Login</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <div className="navbar-end">

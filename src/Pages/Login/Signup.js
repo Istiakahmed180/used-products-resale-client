@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Signup = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile, signInWithGoogle } =
+    useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
 
@@ -14,10 +16,29 @@ const Signup = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        updateUserProfile(names)
+          .then((result) => {
+            toast.success("sign up complete");
+            form.reset();
+          })
+          .catch((error) => console.error(error));
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        toast.error(error.message);
+        form.reset();
+      });
+  };
+
+  const handleGoogleSignUp = () => {
+    signInWithGoogle()
+      .then((result) => {
+        toast.success("sign up complete");
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -41,7 +62,7 @@ const Signup = () => {
           </p>
 
           <Link
-            to="#"
+            onClick={handleGoogleSignUp}
             className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
           >
             <div className="px-4 py-2">
