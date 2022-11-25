@@ -19,7 +19,10 @@ const Products = () => {
           ))}
       </div>
       {sellerProduct && (
-        <PurchaseModal sellerProduct={sellerProduct}></PurchaseModal>
+        <PurchaseModal
+          sellerProduct={sellerProduct}
+          setSellerProduct={setSellerProduct}
+        ></PurchaseModal>
       )}
     </div>
   );
