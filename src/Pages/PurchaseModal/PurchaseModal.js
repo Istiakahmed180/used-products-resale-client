@@ -1,7 +1,6 @@
 import React from "react";
 
 const PurchaseModal = ({ sellerProduct }) => {
-  console.log(sellerProduct);
   return (
     <div>
       <input type="checkbox" id="purchase_modal" className="modal-toggle" />

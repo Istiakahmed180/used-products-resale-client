@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div>
-      <div class="my-10 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
-        <div class="hidden lg:block lg:w-[64%] ">
+      <div className="my-10 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
+        <div className="hidden lg:block lg:w-[64%] ">
           <img
             src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000"
             alt=""
@@ -13,21 +13,21 @@ const Login = () => {
           />
         </div>
 
-        <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
-          <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">
+        <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
+          <h2 className="text-2xl font-semibold text-center text-gray-700 dark:text-white">
             Log In
           </h2>
 
-          <p class="text-xl text-center text-gray-600 dark:text-gray-200">
+          <p className="text-xl text-center text-gray-600 dark:text-gray-200">
             Welcome back!
           </p>
 
           <Link
             to="#"
-            class="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+            className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
           >
-            <div class="px-4 py-2">
-              <svg class="w-6 h-6" viewBox="0 0 40 40">
+            <div className="px-4 py-2">
+              <svg className="w-6 h-6" viewBox="0 0 40 40">
                 <path
                   d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
                   fill="#FFC107"
@@ -47,49 +47,49 @@ const Login = () => {
               </svg>
             </div>
 
-            <span class="w-5/6 px-4 py-3 font-bold text-center">
+            <span className="w-5/6 px-4 py-3 font-bold text-center">
               Sign in with Google
             </span>
           </Link>
 
-          <div class="flex items-center justify-between mt-4">
-            <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
+          <div className="flex items-center justify-between mt-4">
+            <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
             <Link
               to="#"
-              class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
+              className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
             >
               or login with email
             </Link>
 
-            <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
+            <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
           </div>
 
-          <div class="mt-4">
+          <div className="mt-4">
             <label
-              class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-              for="LoggingEmailAddress"
+              className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+              htmlFor="LoggingEmailAddress"
             >
               Email Address
             </label>
             <input
               id="LoggingEmailAddress"
-              class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
               type="email"
             />
           </div>
 
-          <div class="mt-4">
-            <div class="flex justify-between">
+          <div className="mt-4">
+            <div className="flex justify-between">
               <label
-                class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-                for="loggingPassword"
+                className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+                htmlFor="loggingPassword"
               >
                 Password
               </label>
               <Link
                 to="#"
-                class="text-xs text-gray-500 dark:text-gray-300 hover:underline"
+                className="text-xs text-gray-500 dark:text-gray-300 hover:underline"
               >
                 Forget Password?
               </Link>
@@ -97,28 +97,28 @@ const Login = () => {
 
             <input
               id="loggingPassword"
-              class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
               type="password"
             />
           </div>
 
-          <div class="mt-8">
-            <button class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+          <div className="mt-8">
+            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Login
             </button>
           </div>
 
-          <div class="flex items-center justify-between mt-4">
-            <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+          <div className="flex items-center justify-between mt-4">
+            <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
             <Link
               to="/signup"
-              class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
+              className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
             >
               or sign up
             </Link>
 
-            <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+            <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
           </div>
         </div>
       </div>
