@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCheckCircle } from "react-icons/fa";
 
 const ProductsCard = ({ product }) => {
   const {
@@ -11,6 +12,7 @@ const ProductsCard = ({ product }) => {
     original_price,
     resale_price,
     use,
+    seller,
   } = product;
   return (
     <div>
@@ -33,14 +35,17 @@ const ProductsCard = ({ product }) => {
                 />
                 <a
                   href="#"
-                  className="mx-2 font-semibold text-gray-700 dark:text-gray-200"
+                  className="mx-2 flex items-center font-semibold text-gray-700 dark:text-gray-200"
                   tabIndex="0"
                   role="link"
                 >
+                  <span className="text-green-600 mr-2">
+                    {seller === "verified" && <FaCheckCircle></FaCheckCircle>}
+                  </span>
                   {seller_name}
                 </a>
               </div>
-              <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">
+              <span className="mx-4 text-xs text-gray-600 dark:text-gray-300">
                 {post_data} <br />
                 Location: {location}
               </span>
@@ -57,6 +62,11 @@ const ProductsCard = ({ product }) => {
             </div>
             <div className="my-2 text-center text-gray-600 dark:text-gray-300">
               Product Using: {use}
+            </div>
+            <div className="flex justify-center">
+              <button className="btn bg-[#153764] hover:bg-[#394CF3] w-1/2 ">
+                purchase
+              </button>
             </div>
           </div>
         </div>
