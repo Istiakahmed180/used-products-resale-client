@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import Spinner from "../../../Components/Spinner/Spinner";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const MyBooking = () => {
@@ -7,10 +8,18 @@ const MyBooking = () => {
 
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
-  const { data: bookings = [] } = useQuery({
+  const {
+    data: bookings = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },

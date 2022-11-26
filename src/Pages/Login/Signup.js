@@ -1,11 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useToken } from "../../Components/hooks/useToken/useToken";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Signup = () => {
+  const [userEmail, setUserEmail] = useState("");
+
+  const [token] = useToken(userEmail);
+
   const { createUser, updateUserProfile, signInWithGoogle } =
     useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  if (token) {
+    navigate("/");
+  }
+
   const handleSignUp = (event) => {
     event.preventDefault();
 
@@ -20,6 +32,7 @@ const Signup = () => {
           .then((result) => {
             toast.success("User Sign Up Successfully Email");
             form.reset();
+            saveUserData(names, email);
           })
           .catch((error) => console.error(error));
       })
@@ -38,6 +51,23 @@ const Signup = () => {
       .catch((error) => {
         console.error(error);
         toast.error(error.message);
+        navigate("/");
+      });
+  };
+
+  const saveUserData = (names, email) => {
+    const user = { names, email };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserEmail(email);
       });
   };
 
