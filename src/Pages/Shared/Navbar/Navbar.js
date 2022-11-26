@@ -37,7 +37,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <li>
-                  <Link to={"/dashboard/dashboard"}>Dashboard</Link>
+                  <Link to={"/dashboard"}>Dashboard</Link>
                 </li>
                 <li onClick={logout}>
                   <Link>Logout</Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
           {user ? (
             <>
               <li>
-                <Link to={"/dashboard/dashboard"}>Dashboard</Link>
+                <Link to={"/dashboard"}>Dashboard</Link>
               </li>
               <li onClick={logout}>
                 <Link>Logout</Link>
