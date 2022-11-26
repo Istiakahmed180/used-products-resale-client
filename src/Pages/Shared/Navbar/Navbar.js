@@ -36,6 +36,9 @@ const Navbar = () => {
             </li>
             {user ? (
               <>
+                <li>
+                  <Link to={"/dashboard/dashboard"}>Dashboard</Link>
+                </li>
                 <li onClick={logout}>
                   <Link>Logout</Link>
                 </li>
@@ -70,6 +73,9 @@ const Navbar = () => {
           </li>
           {user ? (
             <>
+              <li>
+                <Link to={"/dashboard/dashboard"}>Dashboard</Link>
+              </li>
               <li onClick={logout}>
                 <Link>Logout</Link>
               </li>
@@ -90,6 +96,26 @@ const Navbar = () => {
           src="https://source.unsplash.com/40x40/?portrait?1"
         />
       </div>
+      <label
+        tabIndex={0}
+        className="btn btn-ghost lg:hidden"
+        htmlFor="dashboard-drawer"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </label>
     </div>
   );
 };
