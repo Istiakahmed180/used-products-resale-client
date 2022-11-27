@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import PurchaseModal from "../PurchaseModal/PurchaseModal";
 import ProductsCard from "./ProductsCard";
@@ -6,6 +6,7 @@ import ProductsCard from "./ProductsCard";
 const Products = () => {
   const [sellerProduct, setSellerProduct] = useState(null);
   const products = useLoaderData();
+
   return (
     <div>
       <div className="">

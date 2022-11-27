@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import Spinner from "../../../Components/Spinner/Spinner";
 import { AuthContext } from "../../../Context/AuthProvider";
 
@@ -8,11 +9,7 @@ const MyBooking = () => {
 
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
-  const {
-    data: bookings = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: bookings = [], refetch } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await fetch(url, {
@@ -24,6 +21,19 @@ const MyBooking = () => {
       return data;
     },
   });
+
+  const handleBookingDelete = (id) => {
+    fetch(`http://localhost:5000/bookings/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          toast.success("Booking Product Deleted Successfully");
+          refetch();
+        }
+      });
+  };
 
   return (
     <div>
@@ -44,7 +54,7 @@ const MyBooking = () => {
                   Phone
                 </th>
                 <th scope="col" class="py-3 px-6">
-                  Action
+                  Delete
                 </th>
               </tr>
             </thead>
@@ -64,7 +74,7 @@ const MyBooking = () => {
                     >
                       <img
                         class="w-10 h-10 rounded-full"
-                        src="/docs/images/people/profile-picture-1.jpg"
+                        src={booking.productPicture}
                         alt=""
                       />
                       <div class="pl-3">
@@ -90,12 +100,25 @@ const MyBooking = () => {
                       </div>
                     </td>
                     <td class="py-4 px-6">
-                      <a
-                        href="#"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      <button
+                        onClick={() => handleBookingDelete(booking._id)}
+                        className="btn btn-square btn-outline"
                       >
-                        Edit user
-                      </a>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
                     </td>
                   </tr>
                 </>

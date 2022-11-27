@@ -28,6 +28,19 @@ const Allusers = () => {
       });
   };
 
+  const handleUserDelete = (id) => {
+    fetch(`http://localhost:5000/users/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          toast.success("User Deleted Successfully");
+          refetch();
+        }
+      });
+  };
+
   return (
     <div>
       <h1 className="text-center font-semibold text-2xl mb-10">All Users</h1>
@@ -60,7 +73,10 @@ const Allusers = () => {
                     )}
                   </td>
                   <td>
-                    <button className="btn btn-square btn-outline">
+                    <button
+                      onClick={() => handleUserDelete(user._id)}
+                      className="btn btn-square btn-outline"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
