@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
+import { FaUserAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -90,11 +91,25 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <img
-          alt=""
-          className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-          src="https://source.unsplash.com/40x40/?portrait?1"
-        />
+        {user ? (
+          <>
+            {user?.photoURL === null ? (
+              <img
+                alt=""
+                className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                src="https://source.unsplash.com/40x40/?portrait?1"
+              />
+            ) : (
+              <img
+                alt=""
+                className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                src={user?.photoURL}
+              />
+            )}
+          </>
+        ) : (
+          <FaUserAlt></FaUserAlt>
+        )}
       </div>
       <label
         tabIndex={0}
