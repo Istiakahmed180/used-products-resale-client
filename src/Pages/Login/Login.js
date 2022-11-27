@@ -1,14 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useToken } from "../../Components/hooks/useToken/useToken";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
   const { signin, signInWithGoogle } = useContext(AuthContext);
 
+  const [userEmail, setUserEmail] = useState("");
+  const [token] = useToken(userEmail);
+
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -21,7 +29,7 @@ const Login = () => {
       .then((result) => {
         toast.success("User Login Successfully Email");
         form.reset();
-        navigate(from, { replace: true });
+        setUserEmail(email);
       })
       .catch((error) => {
         console.error(error);
