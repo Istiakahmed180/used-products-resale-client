@@ -33,7 +33,9 @@ const Navbar = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li tabIndex={0}>
-              <Link className="justify-between">Parent</Link>
+              <Link to={"/blog"} className="justify-between">
+                Blog
+              </Link>
             </li>
             {user ? (
               <>
@@ -70,7 +72,7 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li tabIndex={0}>
-            <Link>Parent</Link>
+            <Link to={"/blog"}>Blog</Link>
           </li>
           {user ? (
             <>
