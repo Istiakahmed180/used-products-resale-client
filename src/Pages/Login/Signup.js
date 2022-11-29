@@ -25,6 +25,7 @@ const Signup = () => {
     const names = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const sellerOrByer = form.sellerOrByer.value;
 
     createUser(email, password)
       .then((result) => {
@@ -32,7 +33,7 @@ const Signup = () => {
           .then((result) => {
             toast.success("User Sign Up Successfully Email");
             form.reset();
-            saveUserData(names, email);
+            saveUserData(names, email, sellerOrByer);
           })
           .catch((error) => console.error(error));
       })
@@ -56,8 +57,8 @@ const Signup = () => {
       });
   };
 
-  const saveUserData = (names, email) => {
-    const user = { names, email };
+  const saveUserData = (names, email, sellerOrByer) => {
+    const user = { names, email, role: sellerOrByer };
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -182,6 +183,18 @@ const Signup = () => {
                 name="password"
               />
             </div>
+
+            <select
+              className="select select-primary w-full mt-8"
+              required
+              name="sellerOrByer"
+            >
+              <option disabled selected>
+                Select You Are Seller Or Byer?
+              </option>
+              <option>seller</option>
+              <option>byer</option>
+            </select>
 
             <div className="mt-8">
               <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">

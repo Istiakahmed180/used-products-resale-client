@@ -6,12 +6,22 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isSeller, setIsSeller] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/users/admin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setIsAdmin(data.isAdmin);
+      });
+  }, [user?.email]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/seller/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setIsSeller(data.isSeller);
       });
   }, [user?.email]);
   return (
@@ -77,6 +87,10 @@ const DashboardLayout = () => {
                               All Users
                             </Link>
                           </li>
+                        </>
+                      )}
+                      {isSeller && (
+                        <>
                           <li>
                             <Link
                               to="/dashboard/addproduct"
