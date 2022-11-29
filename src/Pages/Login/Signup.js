@@ -9,7 +9,7 @@ const Signup = () => {
 
   const [token] = useToken(userEmail);
 
-  const { createUser, updateUserProfile, signInWithGoogle } =
+  const { createUser, updateUserProfile, signInWithGoogle, logout } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ const Signup = () => {
     signInWithGoogle()
       .then((result) => {
         toast.success("User Sign Up Successfully Google");
+        setUserEmail(result.email);
       })
       .catch((error) => {
         console.error(error);
@@ -68,6 +69,7 @@ const Signup = () => {
       .then((data) => {
         console.log(data);
         setUserEmail(email);
+        logout();
       });
   };
 

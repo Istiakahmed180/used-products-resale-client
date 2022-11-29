@@ -61,7 +61,7 @@ const PurchaseModal = ({ sellerProduct, setSellerProduct }) => {
               name="userEmail"
               type="email"
               disabled
-              defaultValue={user?.email}
+              value={user?.email}
               placeholder="User Email"
               className="input  input-primary w-full my-2"
             />
@@ -69,7 +69,7 @@ const PurchaseModal = ({ sellerProduct, setSellerProduct }) => {
               name="userName"
               type="text"
               disabled
-              defaultValue={user?.displayName}
+              value={user?.displayName}
               placeholder="User Name"
               className="input  input-primary w-full my-2"
             />
@@ -77,7 +77,7 @@ const PurchaseModal = ({ sellerProduct, setSellerProduct }) => {
               name="itemName"
               type="text"
               disabled
-              defaultValue={sellerProduct?.name}
+              value={sellerProduct?.name}
               placeholder="Product Name"
               className="input  input-primary w-full my-2"
             />
@@ -85,7 +85,7 @@ const PurchaseModal = ({ sellerProduct, setSellerProduct }) => {
               name="itemPrice"
               type="text"
               disabled
-              defaultValue={sellerProduct?.resale_price}
+              value={sellerProduct?.resale_price}
               placeholder="Product Price"
               className="input  input-primary w-full my-2"
             />

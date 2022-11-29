@@ -16,7 +16,7 @@ const HomeCategories = () => {
       <h1 className="text-2xl text-center font-semibold mb-10">
         Laptop Categories
       </h1>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {categories &&
           categories.map((category) => (
             <HomeCategoriesCard

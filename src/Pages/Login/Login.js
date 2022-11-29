@@ -41,7 +41,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         toast.success("User Login Successfully With Google");
-        navigate(from, { replace: true });
+        setUserEmail(result.email);
       })
       .catch((error) => {
         toast.error(error.message);

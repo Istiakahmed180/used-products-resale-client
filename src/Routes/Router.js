@@ -5,6 +5,7 @@ import Blog from "../Pages/Blog/Blog";
 import AddAProuducts from "../Pages/Dashboard/AddAProducts/AddAProuducts";
 import Allusers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyBooking from "../Pages/Dashboard/MyBooking/MyBooking";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -72,6 +73,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddAProuducts></AddAProuducts>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myproducts",
+        element: (
+          <AdminRoute>
+            <MyProducts></MyProducts>
           </AdminRoute>
         ),
       },
