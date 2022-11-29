@@ -3,6 +3,8 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import AddAProuducts from "../Pages/Dashboard/AddAProducts/AddAProuducts";
+import AllByers from "../Pages/Dashboard/AllByers/AllByers";
+import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
 import Allusers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyBooking from "../Pages/Dashboard/MyBooking/MyBooking";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
@@ -12,6 +14,7 @@ import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
 import Products from "../Pages/Products/Products";
 import AdminRoute from "./AdminRoute";
+import ByerRoute from "./ByerRoute";
 import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 
@@ -58,14 +61,38 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/mybooking",
         element: <MyBooking></MyBooking>,
+      },
+      {
+        path: "/dashboard/mybooking",
+        element: (
+          <ByerRoute>
+            <MyBooking></MyBooking>
+          </ByerRoute>
+        ),
       },
       {
         path: "/dashboard/allusers",
         element: (
           <AdminRoute>
             <Allusers></Allusers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allsellers",
+        element: (
+          <AdminRoute>
+            <AllSellers></AllSellers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allbyers",
+        element: (
+          <AdminRoute>
+            <AllByers></AllByers>
           </AdminRoute>
         ),
       },

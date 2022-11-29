@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const MyProductsCard = ({ product }) => {
   console.log(product);
   const {
     picture,
-    name,
+    productName,
     seller_name,
     post_data,
     location,
@@ -17,15 +16,25 @@ const MyProductsCard = ({ product }) => {
     year_of_Purchase,
     number,
   } = product;
+
+  const handleAdvertise = () => {
+    console.log("advertise");
+  };
+
   return (
     <div class="mx-auto w-3/4 my-20 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
       <img class="object-cover w-full h-64" src={picture} alt="Article" />
 
       <div class="p-6">
         <div>
-          <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
-            {name}
-          </span>
+          <div className="flex justify-between">
+            <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
+              {productName}
+            </span>
+            <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
+              Status : Available
+            </span>
+          </div>
           <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
             {description}
           </p>
@@ -69,6 +78,9 @@ const MyProductsCard = ({ product }) => {
           <div className="flex justify-between">
             <small>Product Quality: {productQuality}</small>
             <small>Year Of Purchase: {year_of_Purchase}</small>
+          </div>
+          <div onClick={handleAdvertise} className="flex justify-center mt-10">
+            <button className="btn btn-accent w-1/2">Advertise</button>
           </div>
         </div>
       </div>

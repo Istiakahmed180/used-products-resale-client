@@ -7,6 +7,7 @@ const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isSeller, setIsSeller] = useState(false);
+  const [isByer, setIsByer] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/users/admin/${user?.email}`)
       .then((res) => res.json())
@@ -22,6 +23,14 @@ const DashboardLayout = () => {
       .then((data) => {
         console.log(data);
         setIsSeller(data.isSeller);
+      });
+  }, [user?.email]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/byer/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setIsByer(data.isByer);
       });
   }, [user?.email]);
   return (
@@ -49,24 +58,26 @@ const DashboardLayout = () => {
                   </div>
                   <div className="p-4">
                     <ul className="space-y-1">
-                      <li>
-                        <Link
-                          to="/dashboard"
-                          className="flex items-center bg-yellow-200 rounded-xl font-bold text-sm text-yellow-900 py-3 px-4"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            fill="currentColor"
-                            className="text-lg mr-4"
-                            viewBox="0 0 16 16"
+                      {isByer && (
+                        <li>
+                          <Link
+                            to="/dashboard/mybooking"
+                            className="flex items-center bg-yellow-200 rounded-xl font-bold text-sm text-yellow-900 py-3 px-4"
                           >
-                            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
-                          </svg>
-                          My Orders
-                        </Link>
-                      </li>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="1em"
+                              height="1em"
+                              fill="currentColor"
+                              className="text-lg mr-4"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
+                            </svg>
+                            My Orders
+                          </Link>
+                        </li>
+                      )}
                       {isAdmin && (
                         <>
                           <li>
@@ -85,6 +96,42 @@ const DashboardLayout = () => {
                                 <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
                               </svg>
                               All Users
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/dashboard/allsellers"
+                              className="flex items-center bg-yellow-200 rounded-xl font-bold text-sm text-yellow-900 py-3 px-4"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="1em"
+                                height="1em"
+                                fill="currentColor"
+                                className="text-lg mr-4"
+                                viewBox="0 0 16 16"
+                              >
+                                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
+                              </svg>
+                              All Sellers
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/dashboard/allbyers"
+                              className="flex items-center bg-yellow-200 rounded-xl font-bold text-sm text-yellow-900 py-3 px-4"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="1em"
+                                height="1em"
+                                fill="currentColor"
+                                className="text-lg mr-4"
+                                viewBox="0 0 16 16"
+                              >
+                                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
+                              </svg>
+                              All Byers
                             </Link>
                           </li>
                         </>
@@ -125,6 +172,24 @@ const DashboardLayout = () => {
                                 <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
                               </svg>
                               My Products
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/dashboard/mybooking"
+                              className="flex items-center bg-yellow-200 rounded-xl font-bold text-sm text-yellow-900 py-3 px-4"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="1em"
+                                height="1em"
+                                fill="currentColor"
+                                className="text-lg mr-4"
+                                viewBox="0 0 16 16"
+                              >
+                                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
+                              </svg>
+                              My Byers
                             </Link>
                           </li>
                         </>
