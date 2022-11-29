@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 import Spinner from "../../../Components/Spinner/Spinner";
 import { AuthContext } from "../../../Context/AuthProvider";
 
@@ -55,6 +56,9 @@ const MyBooking = () => {
                 </th>
                 <th scope="col" className="py-3 px-6">
                   Delete
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Pay
                 </th>
               </tr>
             </thead>
@@ -119,6 +123,11 @@ const MyBooking = () => {
                           />
                         </svg>
                       </button>
+                    </td>
+                    <td className="">
+                      <Link to={"/dashboard/payment"}>
+                        <button className="btn btn-sm btn-accent">Pay</button>
+                      </Link>
                     </td>
                   </tr>
                 </>

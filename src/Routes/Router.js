@@ -12,6 +12,7 @@ import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
+import Payment from "../Pages/Payment/Payment";
 import Products from "../Pages/Products/Products";
 import AdminRoute from "./AdminRoute";
 import ByerRoute from "./ByerRoute";
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/mybooking",
         element: <MyBooking></MyBooking>,
+      },
+      {
+        path: "/dashboard/payment",
+        element: <Payment></Payment>,
       },
       {
         path: "/dashboard/mybooking",
