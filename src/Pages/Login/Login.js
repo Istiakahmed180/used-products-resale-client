@@ -1,22 +1,14 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useToken } from "../../Components/hooks/useToken/useToken";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
   const { signin, signInWithGoogle } = useContext(AuthContext);
 
-  const [userEmail, setUserEmail] = useState("");
-  const [token] = useToken(userEmail);
-
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
-
-  if (token) {
-    navigate(from, { replace: true });
-  }
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -29,7 +21,14 @@ const Login = () => {
       .then((result) => {
         toast.success("User Login Successfully Email");
         form.reset();
-        setUserEmail(email);
+        fetch(`https://final-project-server-nine.vercel.app/jwt?email=${email}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.accesToken) {
+              localStorage.setItem("accessToken", data.accesToken);
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((error) => {
         console.error(error);
@@ -41,7 +40,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         toast.success("User Login Successfully With Google");
-        setUserEmail(result.email);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
