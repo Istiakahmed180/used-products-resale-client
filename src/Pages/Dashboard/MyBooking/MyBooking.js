@@ -8,7 +8,7 @@ import { AuthContext } from "../../../Context/AuthProvider";
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://final-project-server-nine.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [], refetch } = useQuery({
     queryKey: ["bookings", user?.email],
@@ -24,7 +24,7 @@ const MyBooking = () => {
   });
 
   const handleBookingDelete = (id) => {
-    fetch(`http://localhost:5000/bookings/${id}`, {
+    fetch(`https://final-project-server-nine.vercel.app/bookings/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

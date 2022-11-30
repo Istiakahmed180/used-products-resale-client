@@ -8,7 +8,9 @@ const AdminRoute = ({ children }) => {
   const [adminLoading, setAdminLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/admin/${user?.email}`)
+    fetch(
+      `https://final-project-server-nine.vercel.app/users/admin/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsAdmin(data.isAdmin);

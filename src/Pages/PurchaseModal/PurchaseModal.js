@@ -27,7 +27,7 @@ const PurchaseModal = ({ sellerProduct, setSellerProduct }) => {
       productPicture: picture,
     };
 
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://final-project-server-nine.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

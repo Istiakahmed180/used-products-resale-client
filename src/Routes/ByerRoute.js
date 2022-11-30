@@ -8,7 +8,9 @@ const ByerRoute = ({ children }) => {
   const [byerLoading, setByerLoading] = useState(true);
   const [isByer, setIsByer] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/byer/${user?.email}`)
+    fetch(
+      `https://final-project-server-nine.vercel.app/users/byer/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

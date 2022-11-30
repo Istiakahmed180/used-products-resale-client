@@ -9,7 +9,9 @@ const AddAProuducts = () => {
   const { data: categoies = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/category");
+      const res = await fetch(
+        "https://final-project-server-nine.vercel.app/category"
+      );
       const data = await res.json();
       return data;
     },
@@ -65,7 +67,7 @@ const AddAProuducts = () => {
             description: ProductDescription,
           };
 
-          fetch("http://localhost:5000/addproducts", {
+          fetch("https://final-project-server-nine.vercel.app/addproducts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
