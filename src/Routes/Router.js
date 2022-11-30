@@ -66,10 +66,6 @@ const router = createBrowserRouter([
         element: <MyBooking></MyBooking>,
       },
       {
-        path: "/dashboard/payment",
-        element: <Payment></Payment>,
-      },
-      {
         path: "/dashboard/mybooking",
         element: (
           <ByerRoute>
@@ -117,6 +113,12 @@ const router = createBrowserRouter([
             <MyProducts></MyProducts>
           </SellerRoute>
         ),
+      },
+      {
+        path: "/dashboard/payment/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/bookings/${params.id}`),
+        element: <Payment></Payment>,
       },
     ],
   },

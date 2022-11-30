@@ -12,7 +12,6 @@ const DashboardLayout = () => {
     fetch(`http://localhost:5000/users/admin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setIsAdmin(data.isAdmin);
       });
   }, [user?.email]);
@@ -21,7 +20,6 @@ const DashboardLayout = () => {
     fetch(`http://localhost:5000/users/seller/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setIsSeller(data.isSeller);
       });
   }, [user?.email]);
@@ -29,7 +27,6 @@ const DashboardLayout = () => {
     fetch(`http://localhost:5000/users/byer/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setIsByer(data.isByer);
       });
   }, [user?.email]);

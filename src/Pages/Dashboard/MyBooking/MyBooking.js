@@ -125,7 +125,7 @@ const MyBooking = () => {
                       </button>
                     </td>
                     <td className="">
-                      <Link to={"/dashboard/payment"}>
+                      <Link to={`/dashboard/payment/${booking._id}`}>
                         <button className="btn btn-sm btn-accent">Pay</button>
                       </Link>
                     </td>

@@ -2,7 +2,6 @@ import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 const ProductsCard = ({ product, setSellerProduct }) => {
-  console.log(product);
   const {
     picture,
     name,

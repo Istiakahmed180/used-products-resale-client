@@ -17,9 +17,7 @@ const MyProductsCard = ({ product }) => {
     number,
   } = product;
 
-  const handleAdvertise = () => {
-    console.log("advertise");
-  };
+  const handleAdvertise = () => {};
 
   return (
     <div class="mx-auto w-3/4 my-20 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
