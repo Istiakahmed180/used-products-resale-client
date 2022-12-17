@@ -59,7 +59,7 @@ const Signup = () => {
 
   const saveUserData = (names, email, sellerOrByer) => {
     const user = { names, email, role: sellerOrByer };
-    fetch("https://final-project-server-nine.vercel.app/users", {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

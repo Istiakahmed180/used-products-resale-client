@@ -44,9 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/category/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://final-project-server-nine.vercel.app/category/${params.id}`
-          ),
+          fetch(`http://localhost:5000/category/${params.id}`),
         element: (
           <PrivateRoute>
             <Products></Products>
@@ -119,9 +117,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://final-project-server-nine.vercel.app/bookings/${params.id}`
-          ),
+          fetch(`http://localhost:5000/bookings/${params.id}`),
         element: <Payment></Payment>,
       },
     ],

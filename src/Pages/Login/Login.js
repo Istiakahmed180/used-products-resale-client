@@ -21,7 +21,7 @@ const Login = () => {
       .then((result) => {
         toast.success("User Login Successfully Email");
         form.reset();
-        fetch(`https://final-project-server-nine.vercel.app/jwt?email=${email}`)
+        fetch(`http://localhost:5000/jwt?email=${email}`)
           .then((res) => res.json())
           .then((data) => {
             if (data.accesToken) {
