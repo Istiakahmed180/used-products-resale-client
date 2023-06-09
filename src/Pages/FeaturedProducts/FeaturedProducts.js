@@ -78,7 +78,7 @@ const FeaturedProducts = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-xl font-bold">{product.price}</span>
                     <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
-                      Add to Cart
+                      Details
                     </button>
                   </div>
                 </div>

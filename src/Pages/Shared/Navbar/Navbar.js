@@ -7,7 +7,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 shadow rounded">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -60,7 +60,7 @@ const Navbar = () => {
           <img
             src="https://i.ibb.co/s52drGr/image-removebg-preview.png"
             alt=""
-            className="w-8"
+            className="w-8 rounded-full"
           />
           <Link to={"/"} className="ml-2 normal-case font-semibold text-xl">
             Shop BD
