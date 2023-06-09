@@ -5,6 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -105,7 +106,7 @@ const Navbar = () => {
               <img
                 alt=""
                 className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                src={user?.photoURL}
+                src={user?.photoURL && user.photoURL}
               />
             )}
           </>
