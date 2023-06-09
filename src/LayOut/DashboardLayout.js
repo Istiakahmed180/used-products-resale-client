@@ -9,7 +9,9 @@ const DashboardLayout = () => {
   const [isSeller, setIsSeller] = useState(false);
   const [isByer, setIsByer] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/admin/${user?.email}`)
+    fetch(
+      `https://used-products-resale-server-sigma.vercel.app/users/admin/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsAdmin(data.isAdmin);
@@ -17,14 +19,18 @@ const DashboardLayout = () => {
   }, [user?.email]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/seller/${user?.email}`)
+    fetch(
+      `https://used-products-resale-server-sigma.vercel.app/users/seller/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsSeller(data.isSeller);
       });
   }, [user?.email]);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/byer/${user?.email}`)
+    fetch(
+      `https://used-products-resale-server-sigma.vercel.app/users/byer/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsByer(data.isByer);

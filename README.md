@@ -19,7 +19,7 @@ https://final-project-authentica-e945f.web.app/
 #### Get Server api
 
 ```http
-  http://localhost:5000
+  https://used-products-resale-server-sigma.vercel.app
 ```
 
 | Parameter | Type     | Description            |
@@ -29,7 +29,7 @@ https://final-project-authentica-e945f.web.app/
 #### Get item
 
 ```http
-  http://localhost:5000/category/${id}
+  https://used-products-resale-server-sigma.vercel.app/category/${id}
 ```
 
 | Parameter | Type     | Description                 |

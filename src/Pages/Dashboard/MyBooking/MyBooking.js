@@ -8,7 +8,7 @@ import { AuthContext } from "../../../Context/AuthProvider";
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://used-products-resale-server-sigma.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [], refetch } = useQuery({
     queryKey: ["bookings", user?.email],
@@ -24,9 +24,12 @@ const MyBooking = () => {
   });
 
   const handleBookingDelete = (id) => {
-    fetch(`http://localhost:5000/bookings/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://used-products-resale-server-sigma.vercel.app/bookings/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

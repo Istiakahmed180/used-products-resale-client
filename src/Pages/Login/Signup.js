@@ -59,7 +59,7 @@ const Signup = () => {
 
   const saveUserData = (names, email, sellerOrByer) => {
     const user = { names, email, role: sellerOrByer };
-    fetch("http://localhost:5000/users", {
+    fetch("https://used-products-resale-server-sigma.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

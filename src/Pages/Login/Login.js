@@ -21,7 +21,9 @@ const Login = () => {
       .then((result) => {
         toast.success("User Login Successfully Email");
         form.reset();
-        fetch(`http://localhost:5000/jwt?email=${email}`)
+        fetch(
+          `https://used-products-resale-server-sigma.vercel.app/jwt?email=${email}`
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.accesToken) {

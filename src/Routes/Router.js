@@ -44,7 +44,9 @@ const router = createBrowserRouter([
       {
         path: "/category/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(
+            `https://used-products-resale-server-sigma.vercel.app/category/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <Products></Products>
@@ -117,7 +119,9 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(
+            `https://used-products-resale-server-sigma.vercel.app/bookings/${params.id}`
+          ),
         element: <Payment></Payment>,
       },
     ],

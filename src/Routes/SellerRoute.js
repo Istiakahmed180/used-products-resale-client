@@ -8,7 +8,9 @@ const SellerRoute = ({ children }) => {
   const [sellerLoading, setSellerLoading] = useState(true);
   const [isSeller, setIsSeller] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/seller/${user?.email}`)
+    fetch(
+      `https://used-products-resale-server-sigma.vercel.app/users/seller/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

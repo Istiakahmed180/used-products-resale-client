@@ -6,7 +6,9 @@ const MyProducts = () => {
   const { data: myProducts } = useQuery({
     queryKey: ["myProducts"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/addproducts");
+      const res = await fetch(
+        "https://used-products-resale-server-sigma.vercel.app/addproducts"
+      );
       const data = await res.json();
       return data;
     },

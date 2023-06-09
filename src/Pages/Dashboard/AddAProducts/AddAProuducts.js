@@ -9,7 +9,9 @@ const AddAProuducts = () => {
   const { data: categoies = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/category");
+      const res = await fetch(
+        "https://used-products-resale-server-sigma.vercel.app/category"
+      );
       const data = await res.json();
       return data;
     },
@@ -65,13 +67,16 @@ const AddAProuducts = () => {
             description: ProductDescription,
           };
 
-          fetch("http://localhost:5000/addproducts", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(addProduct),
-          })
+          fetch(
+            "https://used-products-resale-server-sigma.vercel.app/addproducts",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(addProduct),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.acknowledged) {
